@@ -26,24 +26,28 @@ Set-Alias dh Get-FolderSize
 Import-Module posh-git
 
 #Functions
-function which ($command) {
+function which($command) {
     Get-Command -Name $command -ErrorAction SilentlyContinue |
         Select-Object -ExpandProperty Path -ErrorAction SilentlyContinue
 }
 
-function sizeof($path){
+function sizeof($path) {
   $mb = [math]::Round(((Get-ChildItem $path -Recurse | Measure-Object -Property Length -Sum -ErrorAction Stop).Sum / 1MB),3)
   "{0} MB" -f $mb
 }
 
-function sudo ($app = "wt"){ Start-Process $app -Verb runAs}
+function sudo($app = "wt") { Start-Process $app -Verb runAs }
 
-function tail($Path, $Num = 10){
+function tail($Path, $Num = 10) {
   cat $Path -Tail $Num
 }
 
-function head($Path, $Num = 10){
+function head($Path, $Num = 10) {
   cat $Path -Head $Num
+}
+
+function sha256sum($Path) {
+  Get-FileHash $Path -Algorithm SHA256
 }
 
 function pipecmd {
