@@ -14,6 +14,7 @@ Set-PSReadLineOption -PredictionViewStyle ListView
 
 #oh-my-posh configs
 oh-my-posh init pwsh --config 'C:\Users\barte\.config\oh-my-posh\jarsey45.omp.json'| Invoke-Expression
+# fallback: https://raw.githubusercontent.com/Jarsey45/dotfiles/main/.confg/oh-my-posh/jarsey45.omp.json
 
 #Aliases
 Set-Alias ll ls
